@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <h2 class="my-4">Lista de Reservas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cancha</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Fecha de Reserva</th>
+        <th scope="col">Fecha del Turno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reserva of reservas">
+        <th scope="row">{{ reserva.id }}</th>
+        <td>{{ reserva.cancha }}</td>
+        <td>{{ reserva.cliente }}</td>
+        <td>{{ reserva.empleado }}</td>
+        <td>{{ reserva.fechaReserva | date:'short' }}</td>
+        <td>{{ reserva.fechaTurno | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h2 class="my-4">Canchas Disponibles</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let cancha of canchas">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ cancha.nombre }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ cancha.tipo }}</h6>
+          <p class="card-text">Código: {{ cancha.codigoInterno }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="cancha.servicios.vestuario">Cuenta con vestuario</li>
+            <li class="list-group-item" *ngIf="cancha.servicios.iluminacion">Cuenta con iluminación</li>
+            <li class="list-group-item" *ngIf="cancha.servicios.cespedSintetico">Césped sintético</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

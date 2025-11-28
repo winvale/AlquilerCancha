@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h2 class="my-4">Crear Nueva Reserva</h2>
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ successMessage }}
+    <button type="button" class="btn-close" (click)="successMessage = ''"></button>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="cancha" class="form-label">Cancha</label>
+      <select class="form-select" id="cancha" [(ngModel)]="reserva.canchaId" name="canchaId" required>
+        <option value="" disabled>Seleccione una cancha</option>
+        <option *ngFor="let cancha of canchas" [value]="cancha.id">{{ cancha.nombre }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="cliente" class="form-label">Nombre del Cliente</label>
+      <input type="text" class="form-control" id="cliente" [(ngModel)]="reserva.cliente" name="cliente" required>
+    </div>
+    <div class="mb-3">
+      <label for="empleado" class="form-label">Empleado que toma la reserva</label>
+      <input type="text" class="form-control" id="empleado" [(ngModel)]="reserva.empleado" name="empleado" required>
+    </div>
+    <div class="mb-3">
+      <label for="fechaTurno" class="form-label">Fecha y Hora del Turno</label>
+      <input type="datetime-local" class="form-control" id="fechaTurno" [(ngModel)]="reserva.fechaTurno" name="fechaTurno" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+      {{ isLoading ? 'Reservando...' : 'Reservar' }}
+    </button>
+  </form>
+</div>
